@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21679"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionReusableView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="HeaderPosterCollectionReusableView" id="U6b-Vx-4bR" customClass="HeaderPosterCollectionReusableView" customModule="SeSAC3Week5" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="331" height="92"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AbD-pj-WDf">
+                    <rect key="frame" x="16" y="0.0" width="299" height="58"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="VXr-Tz-HHm"/>
+            <constraints>
+                <constraint firstItem="AbD-pj-WDf" firstAttribute="leading" secondItem="U6b-Vx-4bR" secondAttribute="leading" constant="16" id="adC-Mk-6N3"/>
+                <constraint firstItem="AbD-pj-WDf" firstAttribute="top" secondItem="U6b-Vx-4bR" secondAttribute="top" id="nlg-Vm-OuS"/>
+                <constraint firstAttribute="trailing" secondItem="AbD-pj-WDf" secondAttribute="trailing" constant="16" id="ocu-nC-s9W"/>
+                <constraint firstItem="VXr-Tz-HHm" firstAttribute="bottom" secondItem="AbD-pj-WDf" secondAttribute="bottom" id="xU8-dC-58Z"/>
+            </constraints>
+            <connections>
+                <outlet property="titleLabel" destination="AbD-pj-WDf" id="pCz-IO-XYn"/>
+            </connections>
+            <point key="canvasLocation" x="-23.664122137404579" y="35.211267605633807"/>
+        </collectionReusableView>
+    </objects>
+</document>
