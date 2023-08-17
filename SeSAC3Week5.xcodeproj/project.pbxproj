@@ -15,6 +15,7 @@
 		041AE3D92A899B29007724AE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 041AE3D72A899B29007724AE /* LaunchScreen.storyboard */; };
 		041AE3E72A899D84007724AE /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041AE3E62A899D84007724AE /* Endpoint.swift */; };
 		041AE3E92A89A265007724AE /* GCDBasicViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041AE3E82A89A265007724AE /* GCDBasicViewController.swift */; };
+		2356E4902A8E2BBE000DB64F /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 2356E48F2A8E2BBE000DB64F /* .gitignore */; };
 		23CB122F2A8C4AC50023A9DF /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 23CB122E2A8C4AC50023A9DF /* Alamofire */; };
 		23CB12322A8C4AD10023A9DF /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 23CB12312A8C4AD10023A9DF /* Kingfisher */; };
 		23CB12342A8C4B160023A9DF /* CodableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23CB12332A8C4B160023A9DF /* CodableViewController.swift */; };
@@ -43,6 +44,7 @@
 		041AE3DA2A899B29007724AE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		041AE3E62A899D84007724AE /* Endpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
 		041AE3E82A89A265007724AE /* GCDBasicViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GCDBasicViewController.swift; sourceTree = "<group>"; };
+		2356E48F2A8E2BBE000DB64F /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		23CB12332A8C4B160023A9DF /* CodableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodableViewController.swift; sourceTree = "<group>"; };
 		23CB12362A8C75080023A9DF /* PosterCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PosterCollectionViewCell.swift; sourceTree = "<group>"; };
 		23CB12372A8C75080023A9DF /* PosterCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PosterCollectionViewCell.xib; sourceTree = "<group>"; };
@@ -106,6 +108,7 @@
 				041AE3DA2A899B29007724AE /* Info.plist */,
 				23CB12442A8DA33F0023A9DF /* Extension+Alert.swift */,
 				23CB12492A8DB2500023A9DF /* ReusableViewProtocol.swift */,
+				2356E48F2A8E2BBE000DB64F /* .gitignore */,
 			);
 			path = SeSAC3Week5;
 			sourceTree = "<group>";
@@ -220,6 +223,7 @@
 				041AE3D92A899B29007724AE /* LaunchScreen.storyboard in Resources */,
 				23CB12392A8C75080023A9DF /* PosterCollectionViewCell.xib in Resources */,
 				041AE3D62A899B29007724AE /* Assets.xcassets in Resources */,
+				2356E4902A8E2BBE000DB64F /* .gitignore in Resources */,
 				041AE3D42A899B28007724AE /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
