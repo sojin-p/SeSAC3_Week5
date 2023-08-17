@@ -13,6 +13,7 @@ class PosterCollectionViewCell: UICollectionViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        posterImageView.layer.cornerRadius = 7
     }
     
     //재사용할 때 준비할 사항있니? - 이전 이미지 흔적 지워줘!!

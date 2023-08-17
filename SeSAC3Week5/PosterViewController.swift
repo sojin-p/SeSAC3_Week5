@@ -6,8 +6,6 @@
 //
 
 import UIKit
-import Alamofire
-import SwiftyJSON
 import Kingfisher
 
 protocol CollectionViewAttributeProtocol {
@@ -24,6 +22,8 @@ class PosterViewController: UIViewController {
     
     var list: Recommendation = Recommendation(totalPages: 0, page: 0, results: [], totalResults: 0)
     var secondList: Recommendation = Recommendation(totalPages: 0, page: 0, results: [], totalResults: 0)
+    var thirdList: Recommendation = Recommendation(totalPages: 0, page: 0, results: [], totalResults: 0)
+    var fourthList: Recommendation = Recommendation(totalPages: 0, page: 0, results: [], totalResults: 0)
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,49 +35,38 @@ class PosterViewController: UIViewController {
         configureCollectionView()
         configureCollectionViewLayout()
         
-        callRecommendation(id: 872585) { data in
+        RecommendationManager.shared.callRecommendation(id: 872585) { data in
             self.list = data
             self.posterCollectionView.reloadData() //여기가 없으면 .. 뭐가 먼저 통신될지 모르니까 운에맡겨야 됨
         }
         
-        callRecommendation(id: 976573) { data in
+        RecommendationManager.shared.callRecommendation(id: 976573) { data in
             self.secondList = data
+            self.posterCollectionView.reloadData()
+        }
+        
+        RecommendationManager.shared.callRecommendation(id: 447365) { data in
+            self.thirdList = data
+            self.posterCollectionView.reloadData()
+        }
+        
+        RecommendationManager.shared.callRecommendation(id: 346698) { data in
+            self.fourthList = data
             self.posterCollectionView.reloadData()
         }
 
     }
     
-    //오펜: 872585 / 엘리멘탈: 976573 / 가오갤: 447365 / 바비: 346698
-    func callRecommendation(id: Int, completionHandler: @escaping (Recommendation) -> Void) {
-        
-        let url = "https://api.themoviedb.org/3/movie/\(id)/recommendations?api_key=\(Key.tmdbKey)&language=ko-KR"
-        
-        //.get 안해도 기본값으로 있음
-        AF.request(url).validate(statusCode: 200...500)
-            .responseDecodable(of: Recommendation.self) { response in
-                
-                switch response.result {
-                case .success(let value):
-                    completionHandler(value)
-//                    self.list = value
-//                    self.posterCollectionView.reloadData() //데이터가 달라지는 시점마다 갱신필요!
-                    
-                case .failure(let error):
-                    print(error)
-                }
-            }
-        
-    }
     
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        
+//    override func viewDidAppear(_ animated: Bool) {
+//        super.viewWillAppear(animated)
+//
 //        showAlert(title: "테스트", message: "테스트입니당", button: "확인") {
 //            print("확인버튼을 눌렀습니당")
 //            self.posterCollectionView.backgroundColor = .yellow
 //        }
-        
-    }
+//
+//    }
     
 }
 
@@ -92,8 +81,10 @@ extension PosterViewController: UICollectionViewDelegate, UICollectionViewDataSo
             return list.results.count
         } else if section == 1 {
             return secondList.results.count
+        } else if section == 2 {
+            return thirdList.results.count
         } else {
-            return 9
+            return fourthList.results.count
         }
     }
     
@@ -106,6 +97,12 @@ extension PosterViewController: UICollectionViewDelegate, UICollectionViewDataSo
             cell.posterImageView.kf.setImage(with: URL(string: url))
         } else if indexPath.section == 1 {
             let url = "https://www.themoviedb.org/t/p/w600_and_h900_bestv2\(secondList.results[indexPath.item].posterPath ?? "")"
+            cell.posterImageView.kf.setImage(with: URL(string: url))
+        } else if indexPath.section == 2 {
+            let url = "https://www.themoviedb.org/t/p/w600_and_h900_bestv2\(thirdList.results[indexPath.item].posterPath ?? "")"
+            cell.posterImageView.kf.setImage(with: URL(string: url))
+        } else {
+            let url = "https://www.themoviedb.org/t/p/w600_and_h900_bestv2\(fourthList.results[indexPath.item].posterPath ?? "")"
             cell.posterImageView.kf.setImage(with: URL(string: url))
         }
         
@@ -121,7 +118,7 @@ extension PosterViewController: UICollectionViewDelegate, UICollectionViewDataSo
             
             guard let view = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: HeaderPosterCollectionReusableView.identifier, for: indexPath) as? HeaderPosterCollectionReusableView else { return UICollectionReusableView() }
             
-            view.titleLabel.text = "테스트 섹션"
+            view.titleLabel.text = "\(indexPath.section + 1)번 타이틀"
             
             return view
             
@@ -147,12 +144,16 @@ extension PosterViewController: CollectionViewAttributeProtocol {
     }
     
     func configureCollectionViewLayout() {
+        
         let layout = UICollectionViewFlowLayout()
-        layout.itemSize = CGSize(width: 100, height: 100)
-        layout.minimumLineSpacing = 8
-        layout.minimumInteritemSpacing = 8
+        let spacing: CGFloat = 8
+        let width = UIScreen.main.bounds.width - (spacing * 4)
+        layout.itemSize = CGSize(width: width / 3, height: width / 2)
+        layout.sectionInset = UIEdgeInsets(top: spacing, left: spacing, bottom: spacing, right: spacing)
+        layout.minimumLineSpacing = spacing
+        layout.minimumInteritemSpacing = spacing
         layout.scrollDirection = .vertical
-        layout.headerReferenceSize = CGSize(width: 300, height: 50) //얘만 새로추가!
+        layout.headerReferenceSize = CGSize(width: 300, height: 30) //얘만 새로추가!
         
         posterCollectionView.collectionViewLayout = layout
     }

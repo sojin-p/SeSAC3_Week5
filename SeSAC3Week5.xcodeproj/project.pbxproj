@@ -16,6 +16,8 @@
 		041AE3E72A899D84007724AE /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041AE3E62A899D84007724AE /* Endpoint.swift */; };
 		041AE3E92A89A265007724AE /* GCDBasicViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041AE3E82A89A265007724AE /* GCDBasicViewController.swift */; };
 		2356E4902A8E2BBE000DB64F /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 2356E48F2A8E2BBE000DB64F /* .gitignore */; };
+		2356E4922A8E2C05000DB64F /* APIKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2356E4912A8E2C05000DB64F /* APIKey.swift */; };
+		2356E4942A8E2D14000DB64F /* RecommendationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2356E4932A8E2D14000DB64F /* RecommendationManager.swift */; };
 		23CB122F2A8C4AC50023A9DF /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 23CB122E2A8C4AC50023A9DF /* Alamofire */; };
 		23CB12322A8C4AD10023A9DF /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 23CB12312A8C4AD10023A9DF /* Kingfisher */; };
 		23CB12342A8C4B160023A9DF /* CodableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23CB12332A8C4B160023A9DF /* CodableViewController.swift */; };
@@ -30,7 +32,7 @@
 		23DF350D2A8DC98000F56440 /* WeatherManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23DF350C2A8DC97F00F56440 /* WeatherManager.swift */; };
 		23DF35102A8DC9C800F56440 /* SwiftyJSON in Frameworks */ = {isa = PBXBuildFile; productRef = 23DF350F2A8DC9C800F56440 /* SwiftyJSON */; };
 		23DF35122A8DE2E700F56440 /* WeatherData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23DF35112A8DE2E700F56440 /* WeatherData.swift */; };
-		23DF35142A8DECCB00F56440 /* Moviedata.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23DF35132A8DECCB00F56440 /* Moviedata.swift */; };
+		23DF35142A8DECCB00F56440 /* RecommendationAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23DF35132A8DECCB00F56440 /* RecommendationAPI.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -45,6 +47,8 @@
 		041AE3E62A899D84007724AE /* Endpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
 		041AE3E82A89A265007724AE /* GCDBasicViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GCDBasicViewController.swift; sourceTree = "<group>"; };
 		2356E48F2A8E2BBE000DB64F /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
+		2356E4912A8E2C05000DB64F /* APIKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIKey.swift; sourceTree = "<group>"; };
+		2356E4932A8E2D14000DB64F /* RecommendationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendationManager.swift; sourceTree = "<group>"; };
 		23CB12332A8C4B160023A9DF /* CodableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodableViewController.swift; sourceTree = "<group>"; };
 		23CB12362A8C75080023A9DF /* PosterCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PosterCollectionViewCell.swift; sourceTree = "<group>"; };
 		23CB12372A8C75080023A9DF /* PosterCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PosterCollectionViewCell.xib; sourceTree = "<group>"; };
@@ -56,7 +60,7 @@
 		23CB12492A8DB2500023A9DF /* ReusableViewProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReusableViewProtocol.swift; sourceTree = "<group>"; };
 		23DF350C2A8DC97F00F56440 /* WeatherManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherManager.swift; sourceTree = "<group>"; };
 		23DF35112A8DE2E700F56440 /* WeatherData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherData.swift; sourceTree = "<group>"; };
-		23DF35132A8DECCB00F56440 /* Moviedata.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Moviedata.swift; sourceTree = "<group>"; };
+		23DF35132A8DECCB00F56440 /* RecommendationAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendationAPI.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,6 +80,7 @@
 		041AE3C02A899B28007724AE = {
 			isa = PBXGroup;
 			children = (
+				2356E48F2A8E2BBE000DB64F /* .gitignore */,
 				041AE3CB2A899B28007724AE /* SeSAC3Week5 */,
 				041AE3CA2A899B28007724AE /* Products */,
 			);
@@ -101,14 +106,14 @@
 				041AE3D02A899B28007724AE /* ViewController.swift */,
 				041AE3D22A899B28007724AE /* Main.storyboard */,
 				23CB123E2A8C77890023A9DF /* PosterViewController.swift */,
-				23DF35132A8DECCB00F56440 /* Moviedata.swift */,
+				23DF35132A8DECCB00F56440 /* RecommendationAPI.swift */,
+				2356E4932A8E2D14000DB64F /* RecommendationManager.swift */,
 				23CB12332A8C4B160023A9DF /* CodableViewController.swift */,
 				041AE3D52A899B29007724AE /* Assets.xcassets */,
 				041AE3D72A899B29007724AE /* LaunchScreen.storyboard */,
 				041AE3DA2A899B29007724AE /* Info.plist */,
 				23CB12442A8DA33F0023A9DF /* Extension+Alert.swift */,
 				23CB12492A8DB2500023A9DF /* ReusableViewProtocol.swift */,
-				2356E48F2A8E2BBE000DB64F /* .gitignore */,
 			);
 			path = SeSAC3Week5;
 			sourceTree = "<group>";
@@ -118,6 +123,7 @@
 			children = (
 				041AE3E62A899D84007724AE /* Endpoint.swift */,
 				041AE3E82A89A265007724AE /* GCDBasicViewController.swift */,
+				2356E4912A8E2C05000DB64F /* APIKey.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -239,12 +245,14 @@
 				23DF35122A8DE2E700F56440 /* WeatherData.swift in Sources */,
 				041AE3CD2A899B28007724AE /* AppDelegate.swift in Sources */,
 				23CB12482A8DAB880023A9DF /* LottoManager.swift in Sources */,
-				23DF35142A8DECCB00F56440 /* Moviedata.swift in Sources */,
+				23DF35142A8DECCB00F56440 /* RecommendationAPI.swift in Sources */,
 				23CB123C2A8C75310023A9DF /* HeaderPosterCollectionReusableView.swift in Sources */,
+				2356E4942A8E2D14000DB64F /* RecommendationManager.swift in Sources */,
 				041AE3E92A89A265007724AE /* GCDBasicViewController.swift in Sources */,
 				23CB12452A8DA33F0023A9DF /* Extension+Alert.swift in Sources */,
 				23CB12342A8C4B160023A9DF /* CodableViewController.swift in Sources */,
 				23CB123F2A8C77890023A9DF /* PosterViewController.swift in Sources */,
+				2356E4922A8E2C05000DB64F /* APIKey.swift in Sources */,
 				23CB12382A8C75080023A9DF /* PosterCollectionViewCell.swift in Sources */,
 				23DF350D2A8DC98000F56440 /* WeatherManager.swift in Sources */,
 				041AE3CF2A899B28007724AE /* SceneDelegate.swift in Sources */,
