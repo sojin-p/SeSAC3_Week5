@@ -12,13 +12,50 @@ class GCDBasicViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
  
-        globalAsyncTwo()
+        dispatchGroup()
         
     }
     
-    func globalAsyncTwo() {
-        print("Start")
+    func dispatchGroup() {
         
+        let group = DispatchGroup() //1.
+        
+        DispatchQueue.global().async(group: group) { //2. group 매개변수 하나 가져와서 위 상수 넣기(그룹 등록)
+            for i in 1...100 {
+                print(i, terminator: " ")
+            }
+        }
+        
+        DispatchQueue.global().async(group: group) {
+            for i in 101...200 {
+                print(i, terminator: " ")
+            }
+        }
+        
+        DispatchQueue.global().async(group: group) {
+            for i in 201...300 {
+                print(i, terminator: " ")
+            }
+        }
+        
+        DispatchQueue.global().async(group: group) {
+            for i in 301...400 {
+                print(i, terminator: " ")
+            }
+        }
+        
+        //3.
+        group.notify(queue: .main) { //queue: 신호를 어디서 받을건지(보통 메인)
+            print("할 일 끝났다") //갱신, 화면전환, 팝업창 등의 코드를 여기에~!
+        }
+        
+    }
+    
+    //--------------------------------------------
+    
+    func globalAsyncTwo() {
+        
+        print("Start")
         
         for i in 1...100 {
         

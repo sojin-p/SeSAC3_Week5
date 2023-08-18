@@ -20,6 +20,9 @@ class PosterViewController: UIViewController {
 
     @IBOutlet var posterCollectionView: UICollectionView!
     
+    @IBOutlet var notificationButton: UIButton!
+    
+    
     var list: Recommendation = Recommendation(totalPages: 0, page: 0, results: [], totalResults: 0)
     var secondList: Recommendation = Recommendation(totalPages: 0, page: 0, results: [], totalResults: 0)
     var thirdList: Recommendation = Recommendation(totalPages: 0, page: 0, results: [], totalResults: 0)
@@ -27,38 +30,34 @@ class PosterViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-//        LottoManager.shared.callLotto { bonusNum, num3 in
-//            print("클로저로 꺼내온 값",bonusNum, num3)
-//        }
 
         configureCollectionView()
         configureCollectionViewLayout()
         
-        RecommendationManager.shared.callRecommendation(id: 872585) { data in
-            self.list = data
-            self.posterCollectionView.reloadData() //여기가 없으면 .. 뭐가 먼저 통신될지 모르니까 운에맡겨야 됨
+        
+        //반복문으로 간결하게~
+        let id = [872585, 976573, 447365, 346698]
+        
+        let group = DispatchGroup()
+        
+        for item in id {
+            group.enter()
+            RecommendationManager.shared.callRecommendation(id: item) { data in
+                //리스트(2차원 배열로 만들어보기)에 데이터넣기
+                if item == id[0] { //이런식으로도 괜춘
+                    self.list = data
+                }
+                group.leave()
+            }
         }
         
-        RecommendationManager.shared.callRecommendation(id: 976573) { data in
-            self.secondList = data
-            self.posterCollectionView.reloadData()
-        }
-        
-        RecommendationManager.shared.callRecommendation(id: 447365) { data in
-            self.thirdList = data
-            self.posterCollectionView.reloadData()
-        }
-        
-        RecommendationManager.shared.callRecommendation(id: 346698) { data in
-            self.fourthList = data
+        group.notify(queue: .main) {
             self.posterCollectionView.reloadData()
         }
 
     }
     
-    
-//    override func viewDidAppear(_ animated: Bool) {
+    //    override func viewDidAppear(_ animated: Bool) {
 //        super.viewWillAppear(animated)
 //
 //        showAlert(title: "테스트", message: "테스트입니당", button: "확인") {
@@ -67,6 +66,120 @@ class PosterViewController: UIViewController {
 //        }
 //
 //    }
+    
+    @IBAction func sendNotification(_ sender: UIButton) {
+        
+        //포그라운드 상태에서는 알림이 안 뜨는게 디폴트 : 보고있는데 왜 알림을 줌
+        
+        //1. 컨텐츠
+        let content = UNMutableNotificationContent()
+        content.title = "다마고치에게 물을 \(Int.random(in: 10...100))모금 주세요"
+        content.body = "아직 레벨 3이에요. 물을 주세요"
+        content.badge = 100
+        
+        //2. 언제 보내?? 일단 타임(초)기반으로 최소기준이 60초임. 알림 폭탄은 안되니까!
+        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 5, repeats: false) //반복할거니?
+        
+        //3. 보내자!
+        let request = UNNotificationRequest(identifier: "\(Date())", content: content, trigger: trigger) //교체하고싶으면 아이덴티파이어를 동일하게 하면 됨!
+        
+        UNUserNotificationCenter.current().add(request) { error in //시스템에게 요청하기
+            print(error)
+        }
+        
+    }
+    
+    func dispatchGroupEnterLeave() {
+        
+        let group = DispatchGroup() //1.
+        
+        group.enter() //2. 작업량(레퍼런스 카운트)+1, 특정기능 들어갈게~ (반복되어도 필요한 만큼 넣어야함)
+        RecommendationManager.shared.callRecommendation(id: 872585) { data in
+            self.list = data
+            print("==1==")
+            group.leave() //3. -1 떠나보낼게~ (반복되어도 필요한 만큼 넣어야함)
+        }
+        
+        group.enter()
+        RecommendationManager.shared.callRecommendation(id: 976573) { data in
+            self.secondList = data
+            print("==2==")
+            group.leave()
+        }
+        
+        group.enter()
+        RecommendationManager.shared.callRecommendation(id: 447365) { data in
+            self.thirdList = data
+            print("==3==")
+            group.leave()
+        }
+        
+        group.enter()
+        RecommendationManager.shared.callRecommendation(id: 346698) { data in
+            self.fourthList = data
+            print("==4==")
+            group.leave()
+        }
+        
+        group.notify(queue:.main) { //4. 카운트가 0이 될 때 notify가 실행
+            self.posterCollectionView.reloadData()
+            print("end")
+        }
+    }
+    
+    func dispatchGroupNotify() {
+        
+        let group = DispatchGroup()
+        
+        DispatchQueue.global().async(group: group) { //비동기 안에 비동기(서버통신)가 있음. 그럼 안됨
+            RecommendationManager.shared.callRecommendation(id: 872585) { data in
+                self.list = data
+                print("==1==")
+            }
+        }
+        
+        DispatchQueue.global().async(group: group) {
+            RecommendationManager.shared.callRecommendation(id: 976573) { data in
+                self.secondList = data
+                print("==2==")
+            }
+        }
+        
+        DispatchQueue.global().async(group: group) {
+            RecommendationManager.shared.callRecommendation(id: 447365) { data in
+                self.thirdList = data
+                print("==3==")
+            }
+        }
+        
+        DispatchQueue.global().async(group: group) {
+            RecommendationManager.shared.callRecommendation(id: 346698) { data in
+                self.fourthList = data
+                print("==4==")
+            }
+        }
+        
+        group.notify(queue: .main) {
+            self.posterCollectionView.reloadData()
+            print("end")
+        }
+    }
+    
+    //폰트 내부이름 알아보기
+    func fontName() {
+        
+        for i in UIFont.familyNames {
+            print(i)
+            for name in UIFont.fontNames(forFamilyName: i) {
+                print("====\(name)")
+            }
+        }
+        
+        LottoManager.shared.callLotto { bonusNum, num3 in
+            print("클로저로 꺼내온 값",bonusNum, num3)
+        }
+    }
+    
     
 }
 
@@ -119,6 +232,7 @@ extension PosterViewController: UICollectionViewDelegate, UICollectionViewDataSo
             guard let view = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: HeaderPosterCollectionReusableView.identifier, for: indexPath) as? HeaderPosterCollectionReusableView else { return UICollectionReusableView() }
             
             view.titleLabel.text = "\(indexPath.section + 1)번 타이틀"
+            view.titleLabel.font = UIFont(name: "KCC-Chassam", size: 17) //스태틱랫, 이넘 등으로 관리
             
             return view
             

@@ -18,6 +18,7 @@
 		2356E4902A8E2BBE000DB64F /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 2356E48F2A8E2BBE000DB64F /* .gitignore */; };
 		2356E4922A8E2C05000DB64F /* APIKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2356E4912A8E2C05000DB64F /* APIKey.swift */; };
 		2356E4942A8E2D14000DB64F /* RecommendationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2356E4932A8E2D14000DB64F /* RecommendationManager.swift */; };
+		2356E4972A8EF038000DB64F /* KCC-Chassam.otf in Resources */ = {isa = PBXBuildFile; fileRef = 2356E4962A8EF038000DB64F /* KCC-Chassam.otf */; };
 		23CB122F2A8C4AC50023A9DF /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 23CB122E2A8C4AC50023A9DF /* Alamofire */; };
 		23CB12322A8C4AD10023A9DF /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 23CB12312A8C4AD10023A9DF /* Kingfisher */; };
 		23CB12342A8C4B160023A9DF /* CodableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23CB12332A8C4B160023A9DF /* CodableViewController.swift */; };
@@ -49,6 +50,7 @@
 		2356E48F2A8E2BBE000DB64F /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		2356E4912A8E2C05000DB64F /* APIKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIKey.swift; sourceTree = "<group>"; };
 		2356E4932A8E2D14000DB64F /* RecommendationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendationManager.swift; sourceTree = "<group>"; };
+		2356E4962A8EF038000DB64F /* KCC-Chassam.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "KCC-Chassam.otf"; sourceTree = "<group>"; };
 		23CB12332A8C4B160023A9DF /* CodableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodableViewController.swift; sourceTree = "<group>"; };
 		23CB12362A8C75080023A9DF /* PosterCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PosterCollectionViewCell.swift; sourceTree = "<group>"; };
 		23CB12372A8C75080023A9DF /* PosterCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PosterCollectionViewCell.xib; sourceTree = "<group>"; };
@@ -97,6 +99,7 @@
 		041AE3CB2A899B28007724AE /* SeSAC3Week5 */ = {
 			isa = PBXGroup;
 			children = (
+				2356E4952A8EEFF4000DB64F /* Font */,
 				23DF350B2A8DC92600F56440 /* Weather */,
 				23CB12462A8DAB6C0023A9DF /* Lotto */,
 				23CB12352A8C74C80023A9DF /* View */,
@@ -126,6 +129,14 @@
 				2356E4912A8E2C05000DB64F /* APIKey.swift */,
 			);
 			path = Network;
+			sourceTree = "<group>";
+		};
+		2356E4952A8EEFF4000DB64F /* Font */ = {
+			isa = PBXGroup;
+			children = (
+				2356E4962A8EF038000DB64F /* KCC-Chassam.otf */,
+			);
+			path = Font;
 			sourceTree = "<group>";
 		};
 		23CB12352A8C74C80023A9DF /* View */ = {
@@ -229,6 +240,7 @@
 				041AE3D92A899B29007724AE /* LaunchScreen.storyboard in Resources */,
 				23CB12392A8C75080023A9DF /* PosterCollectionViewCell.xib in Resources */,
 				041AE3D62A899B29007724AE /* Assets.xcassets in Resources */,
+				2356E4972A8EF038000DB64F /* KCC-Chassam.otf in Resources */,
 				2356E4902A8E2BBE000DB64F /* .gitignore in Resources */,
 				041AE3D42A899B28007724AE /* Main.storyboard in Resources */,
 			);
