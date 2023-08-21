@@ -15,7 +15,6 @@ protocol CollectionViewAttributeProtocol {
     
 }
 
-
 class PosterViewController: UIViewController {
 
     @IBOutlet var posterCollectionView: UICollectionView!
@@ -74,11 +73,17 @@ class PosterViewController: UIViewController {
         //1. 컨텐츠
         let content = UNMutableNotificationContent()
         content.title = "다마고치에게 물을 \(Int.random(in: 10...100))모금 주세요"
-        content.body = "아직 레벨 3이에요. 물을 주세요"
+        content.body = ["아직 레벨 3이에요. 물을 주세요", "어쩌구", "저쩌구"].randomElement()!
         content.badge = 100
         
         //2. 언제 보내?? 일단 타임(초)기반으로 최소기준이 60초임. 알림 폭탄은 안되니까!
-        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 5, repeats: false) //반복할거니?
+//        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 5, repeats: false) //반복할거니?
+        //2-2 캘린더 기반
+        var component = DateComponents()
+        component.minute = 5 //매시간 5분마다
+        component.hour = 10 //매일 10시 5분마다
+        
+        let trigger = UNCalendarNotificationTrigger(dateMatching: component, repeats: false)
         
         //3. 보내자!
         let request = UNNotificationRequest(identifier: "\(Date())", content: content, trigger: trigger) //교체하고싶으면 아이덴티파이어를 동일하게 하면 됨!

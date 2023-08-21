@@ -19,6 +19,7 @@
 		2356E4922A8E2C05000DB64F /* APIKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2356E4912A8E2C05000DB64F /* APIKey.swift */; };
 		2356E4942A8E2D14000DB64F /* RecommendationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2356E4932A8E2D14000DB64F /* RecommendationManager.swift */; };
 		2356E4972A8EF038000DB64F /* KCC-Chassam.otf in Resources */ = {isa = PBXBuildFile; fileRef = 2356E4962A8EF038000DB64F /* KCC-Chassam.otf */; };
+		2356E4AB2A92F50C000DB64F /* TestButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2356E4AA2A92F50C000DB64F /* TestButton.swift */; };
 		23CB122F2A8C4AC50023A9DF /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 23CB122E2A8C4AC50023A9DF /* Alamofire */; };
 		23CB12322A8C4AD10023A9DF /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 23CB12312A8C4AD10023A9DF /* Kingfisher */; };
 		23CB12342A8C4B160023A9DF /* CodableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23CB12332A8C4B160023A9DF /* CodableViewController.swift */; };
@@ -51,6 +52,7 @@
 		2356E4912A8E2C05000DB64F /* APIKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIKey.swift; sourceTree = "<group>"; };
 		2356E4932A8E2D14000DB64F /* RecommendationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendationManager.swift; sourceTree = "<group>"; };
 		2356E4962A8EF038000DB64F /* KCC-Chassam.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "KCC-Chassam.otf"; sourceTree = "<group>"; };
+		2356E4AA2A92F50C000DB64F /* TestButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestButton.swift; sourceTree = "<group>"; };
 		23CB12332A8C4B160023A9DF /* CodableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodableViewController.swift; sourceTree = "<group>"; };
 		23CB12362A8C75080023A9DF /* PosterCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PosterCollectionViewCell.swift; sourceTree = "<group>"; };
 		23CB12372A8C75080023A9DF /* PosterCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PosterCollectionViewCell.xib; sourceTree = "<group>"; };
@@ -117,6 +119,7 @@
 				041AE3DA2A899B29007724AE /* Info.plist */,
 				23CB12442A8DA33F0023A9DF /* Extension+Alert.swift */,
 				23CB12492A8DB2500023A9DF /* ReusableViewProtocol.swift */,
+				2356E4AA2A92F50C000DB64F /* TestButton.swift */,
 			);
 			path = SeSAC3Week5;
 			sourceTree = "<group>";
@@ -270,6 +273,7 @@
 				041AE3CF2A899B28007724AE /* SceneDelegate.swift in Sources */,
 				041AE3E72A899D84007724AE /* Endpoint.swift in Sources */,
 				23CB124A2A8DB2500023A9DF /* ReusableViewProtocol.swift in Sources */,
+				2356E4AB2A92F50C000DB64F /* TestButton.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

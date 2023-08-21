@@ -32,6 +32,12 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         UIApplication.shared.applicationIconBadgeNumber = 0 //뱃지 지우기
         
+        //UNUserNotificationCenter.current() 알림 정보들에 접근.
+        //사용자에게 이미 전달된 알림
+        UNUserNotificationCenter.current().removeAllDeliveredNotifications() //배달된 알림 다 제거(알림 안 지우면 기본적으로 4주 떠있음)
+        //사용자에게 전달될 예정인 알림 >> 투두 장보기 알림 받기 해놨는데, 이미 장을 봤다면.. 그런 경우
+        UNUserNotificationCenter.current().removeAllPendingNotificationRequests() //요청 대기상태인 알림 다 제거
+        //특정한 identifier를 기반으로 지울 수도 있음. 메서드 자동완성 확인~
     }
 
     func sceneWillResignActive(_ scene: UIScene) {

@@ -45,9 +45,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 extension AppDelegate: UNUserNotificationCenterDelegate {
     
-    //포그라운드 상태에서 알림 띄우기
+    //willPresent: 포그라운드 상태에서 알림 띄우기 -> 친구랑 1:1 채팅 중에, 다른 대화방 알림은 위에 뜸!
     func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
+        
+        //특정 화면, 특정 조건에서만 포그라운드 알림 받기,
+        //특정 화면에서는 알림 안 받기 이런 처리 가능
         completionHandler([.sound, .badge, .banner, .list]) //배너? 리스트? 새롭게 생긴 스타일...
     }
+    
+    //알림을 클릭하면 특정 화면으로 이동하는 경우(채팅알림이면 채팅방 이동, 쿠팡광고푸쉬면 광고 사이트로 이동 등)
+    //Local 알림 개수 제한: 하루에 64개(identifier기반)
+    //카톡: 포그라운드로 앱을 켜는 순간(알림 누를 경우) 기존 쌓여있던 모든 알림 다 사라짐
+    //잔디나 인스타는 그래도 남아있더라 카톡과 설정이 다르더라
 
 }
